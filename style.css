@@ -1,11 +1,6 @@
 body {
   margin: 0;
-  background-color: lightblue;
-}
-
-h1 {
-  background-color: pink;
-  z-index: 1;
+  color: rgb(22, 22, 22);
 }
 
 .bgVideo {
@@ -21,18 +16,32 @@ main {
   position: fixed;
   z-index: 2;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 main .time {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 200px;
-  padding: 50px 50px;
-  border: 10px solid 0;
-  border-radius: 15px;
+  padding: 12px 24px;
+}
+main .quotes {
+  position: relative;
+  font-size: 60px;
+}
+main .quotes .quotesAddBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+main .quotes:hover .quotesAddBtn {
+  display: inline-block;
+}
+
+.newQuotes {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
