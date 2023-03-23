@@ -1,3 +1,38 @@
+body {
+  margin: 0; //바디가 가진 margin을 제거한단
+  background-color: lightblue;
+}
+
 h1 {
   background-color: pink;
+  z-index: 1;
+}
+
+.bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+main {
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
+  height: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .time {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 200px;
+    padding: 50px 50px;
+    border: 10px solid blue($color: #000000);
+    border-radius: 15px;
+  }
 }

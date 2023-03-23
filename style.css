@@ -1,5 +1,38 @@
+body {
+  margin: 0;
+  background-color: lightblue;
+}
+
 h1 {
   background-color: pink;
+  z-index: 1;
+}
+
+.bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+main {
+  position: fixed;
+  z-index: 2;
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .time {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 200px;
+  padding: 50px 50px;
+  border: 10px solid 0;
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
