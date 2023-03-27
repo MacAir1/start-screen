@@ -19,6 +19,8 @@
 // getTime();
 
 // setInterval(getTime, 1000);
+let isLoading = false;
+
 const QUOTES = "quotes";
 
 function getTime() {
@@ -86,7 +88,58 @@ function onClickRegist() {
   quotesMsg.innerHTML = `<span style="color:red;">${newQuotesInput.value}</span>`;
   newQuotes.style.display = "none";
 }
+async function onClickSearch() {
+  const searchInput = document.querySelector(".searchInput");
+  const searchResult = document.querySelector(".searchResult");
+  if (!searchInput.value) return;
 
+  const question = searchInput.value;
+
+  searchInput.value = "검색 중 입니다... 잠시만 기다려주세요.";
+
+  // 프론트엔드에서 백엔드
+  const response = await axios.post(
+    "https://holy-fire-2749.fly.dev/chat",
+    {
+      question,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer BLOCKCHAINSCHOOL3",
+      },
+    }
+  );
+
+  if (response.status === 200) {
+    searchResult.style.display = "inline";
+    searchResult.innerText = response.data.choices[0].message.content;
+  }
+
+  searchInput.value = "";
+  isLoading = false;
+}
+
+function onClickToggle() {
+  const nft = document.querySelector(".nft");
+  const nftView = document.querySelector("nftView");
+
+  nft.style.display = "none";
+  nftView.sytle.display = "inline-block";
+}
+
+function onClickToggle(value) {
+  const nft = document.querySelector(".nft");
+  const nftView = document.querySelector(".nftView");
+
+  if (value) {
+    nft.style.display = "inline-block";
+    nftView.style.display = "none";
+  } else {
+    nft.style.display = "none";
+    nftView.style.display = "inline-block";
+  }
+}
 // const QUOTES = "quotes";
 
 // function getTime() {
